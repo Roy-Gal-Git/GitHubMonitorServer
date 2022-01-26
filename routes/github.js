@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     "GET /repos/{owner}/{repo}/pulls",
     {
       owner: "roy-gal-git",
-      repo: "connect-four",
+      repo: "CommitLogger",
     }
   );
   res.send(pullRequests);
