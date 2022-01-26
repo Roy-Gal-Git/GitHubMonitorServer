@@ -4,6 +4,6 @@ const helloWorld = require("../routes/helloWorld");
 
 module.exports = function (app) {
   app.use(express.json());
-  app.use("/api/logger", github);
+  app.use("/api/github", github);
   app.use("/", helloWorld);
 };
