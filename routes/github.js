@@ -15,4 +15,8 @@ router.get("/", async (req, res) => {
   res.send(pullRequests);
 });
 
+// router.post("/", async (req, res) => {
+// TODO: update the DB
+// });
+
 module.exports = router;
