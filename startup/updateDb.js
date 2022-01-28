@@ -65,7 +65,6 @@ const updateDB = async (pullRequests) => {
       );
 
       if (!closed_at) {
-        // TODO: Fix the problem that it updates the _id
         await Pull.findByIdAndUpdate(existingPullRequest._id, pull, {
           new: true,
         });
