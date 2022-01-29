@@ -56,6 +56,10 @@ const updateDB = async (pullRequests) => {
           updated_at: pullReq.updated_at,
           closed_at: closed_at,
           merged_at: pullReq.merged_at,
+          repo: {
+            id: pullReq.head.repo.id,
+            name: pullReq.head.repo.name,
+          },
           commits: {
             href: _links.commits.href,
             amount: (await getCommitsOfPullRequest(pullReq.number)).length,
@@ -64,11 +68,9 @@ const updateDB = async (pullRequests) => {
         { _id: false }
       );
 
-      if (!closed_at) {
-        await Pull.findByIdAndUpdate(existingPullRequest._id, pull, {
-          new: true,
-        });
-      }
+      await Pull.findByIdAndUpdate(existingPullRequest._id, pull, {
+        new: true,
+      });
     } else {
       pull = new Pull({
         title: pullReq.title,
@@ -85,6 +87,10 @@ const updateDB = async (pullRequests) => {
         updated_at: pullReq.updated_at,
         closed_at: closed_at,
         merged_at: pullReq.merged_at,
+        repo: {
+          id: pullReq.head.repo.id,
+          name: pullReq.head.repo.name,
+        },
         commits: {
           href: _links.commits.href,
           amount: (await getCommitsOfPullRequest(pullReq.number)).length,
