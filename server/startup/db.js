@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-// const winston = require("winston");
 
-let db = "mongodb://localhost:27017/commitlogger";
+let db = "mongodb://localhost:27017/loggedPullRequests";
 module.exports = function () {
   mongoose.connect(db).then(() => console.log(`Connected to ${db}...`));
 };
