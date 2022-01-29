@@ -15,6 +15,10 @@ const pullSchema = new mongoose.Schema({
   updated_at: { type: String },
   closed_at: { type: String },
   merged_at: { type: String },
+  repo: {
+    id: { type: Number },
+    name: { type: String },
+  },
   commits: {
     href: { type: String },
     amount: { type: Number },
