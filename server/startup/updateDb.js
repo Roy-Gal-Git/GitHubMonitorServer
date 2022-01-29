@@ -104,7 +104,11 @@ const updateDB = async (pullRequests) => {
 
 module.exports = function () {
   cron.schedule("*/2 * * * *", async () => {
-    pullRequests = await getPullRequests();
-    updateDB(pullRequests);
+    try {
+      pullRequests = await getPullRequests();
+      updateDB(pullRequests);
+    } catch (error) {
+      console.log(error.message);
+    }
   });
 };
