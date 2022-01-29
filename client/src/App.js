@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Pulls from "./components/pulls";
 import { Route, Redirect, Switch } from "react-router-dom";
+import NotFound from "./components/notFound";
 import "./App.css";
 
 class App extends Component {
@@ -9,7 +10,9 @@ class App extends Component {
       <React.Fragment>
         <main>
           <Switch>
-            <Route path="/" component={Pulls}></Route>
+            <Route path="/not-found" component={NotFound}></Route>
+            <Route path="/" exact component={Pulls}></Route>
+            <Redirect to="/not-found"></Redirect>
           </Switch>
         </main>
       </React.Fragment>
