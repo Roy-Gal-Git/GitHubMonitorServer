@@ -7,7 +7,7 @@ import PullsTable from "./pullsTable";
 class Pulls extends Component {
   state = {
     pulls: [],
-    pageSize: 4,
+    pageSize: 6,
     currentPage: 1,
   };
 
